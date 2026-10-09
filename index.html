@@ -1,0 +1,548 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aditya Computer Academy</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:#f4f7fb;color:#1e293b;line-height:1.6}
+header{background:#111827;color:white;padding:15px;position:sticky;top:0;z-index:10}
+nav{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-top:10px}
+nav a{color:white;text-decoration:none;font-weight:bold;font-size:14px}
+.container{width:92%;max-width:1100px;margin:auto}
+.hero{text-align:center;padding:65px 15px;background:linear-gradient(135deg,#4338ca,#0891b2);color:white}
+.hero h1{font-size:clamp(30px,5vw,48px);margin-bottom:12px}
+.hero p{margin-bottom:20px}
+button,.btn{border:0;border-radius:7px;padding:11px 16px;cursor:pointer;font-weight:bold;text-decoration:none;display:inline-block}
+.primary{background:#4338ca;color:white}
+.green{background:#16a34a;color:white}
+.white{background:white;color:#4338ca}
+section{padding:45px 0}
+h2{text-align:center;color:#312e81;margin-bottom:25px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.card{background:white;padding:20px;border-radius:12px;box-shadow:0 3px 12px #00000010}
+.card h3{color:#4338ca;margin-bottom:8px}
+.price{font-size:25px;font-weight:bold;color:#0891b2;margin:8px 0}
+.card ul{padding-left:20px;margin:10px 0}
+.card button{margin:5px 3px 0 0}
+#about,#payment{background:white}
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
+.tool{background:white;padding:18px;text-align:center;border-radius:10px;border:1px solid #ddd;text-decoration:none;color:#4338ca;font-weight:bold}
+.formbox{max-width:750px;margin:auto;background:white;padding:22px;border-radius:12px;box-shadow:0 3px 12px #0001}
+input,select,textarea{width:100%;padding:11px;border:1px solid #cbd5e1;border-radius:6px;font:inherit;margin:5px 0 12px}
+label{font-weight:bold}
+.modal{display:none;position:fixed;inset:0;background:#0009;z-index:100;align-items:center;justify-content:center;padding:12px}
+.modal.show{display:flex}
+.modal-content{background:white;padding:24px;border-radius:12px;width:100%;max-width:750px;max-height:92vh;overflow:auto;position:relative}
+.close{float:right;background:#e5e7eb;color:#111}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.full{grid-column:1/-1}
+.notice{display:none;padding:12px;margin:12px 0;border-radius:7px;background:#dcfce7;color:#166534}
+.notice.show{display:block}
+table{width:100%;border-collapse:collapse;margin:15px 0}
+th,td{border:1px solid #ddd;padding:8px;text-align:left;font-size:13px}
+footer{background:#111827;color:white;text-align:center;padding:25px}
+footer a{color:#67e8f9}
+@media(max-width:550px){.formgrid{grid-template-columns:1fr}.full{grid-column:auto}nav{gap:10px}}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<h2 style="color:white;margin:0">ADITYA COMPUTER ACADEMY</h2>
+<nav>
+<a href="#home">Home</a>
+<a href="#courses">Courses</a>
+<a href="#about">About</a>
+<a href="#ai">AI Tools</a>
+<a href="#payment">Payment</a>
+<a href="#certificate">Certificate</a>
+<a href="#contact">Contact</a>
+</nav>
+</div>
+</header>
+
+<section class="hero" id="home">
+<div class="container">
+<h1>Welcome to Aditya Computer Academy</h1>
+<p>Learn Computer Skills • Build Your Future</p>
+<p>ADCA | DCA | CCC | DTP | PGDCA | Tally | Typing | MS Office</p>
+<button class="white" onclick="document.getElementById('courses').scrollIntoView()">Explore Courses</button>
+<button class="green" onclick="enroll()">Enroll Now</button>
+<p style="margin-top:18px">📞 9305066046</p>
+</div>
+</section>
+
+<section id="courses">
+<div class="container">
+<h2>Our Courses</h2>
+<div class="cards" id="courseCards"></div>
+</div>
+</section>
+
+<section id="about">
+<div class="container">
+<h2>About Our Academy</h2>
+<div class="card">
+<h3>Why Choose Aditya Computer Academy?</h3>
+<ul>
+<li>Computer education for beginners</li>
+<li>Practical computer training</li>
+<li>Affordable course fees</li>
+<li>Office and accounting skills</li>
+<li>Graphic design and typing</li>
+<li>Digital skills and AI tools</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section id="ai">
+<div class="container">
+<h2>10 AI Tools for Students</h2>
+<div class="tools">
+<a class="tool" target="_blank" href="https://chatgpt.com/">ChatGPT</a>
+<a class="tool" target="_blank" href="https://www.blackbox.ai/">Blackbox AI</a>
+<a class="tool" target="_blank" href="https://gemini.google.com/">Google Gemini</a>
+<a class="tool" target="_blank" href="https://labs.google/flow/about">Google Flow AI</a>
+<a class="tool" target="_blank" href="https://www.canva.com/">Canva AI</a>
+<a class="tool" target="_blank" href="https://copilot.microsoft.com/">Microsoft Copilot</a>
+<a class="tool" target="_blank" href="https://claude.ai/">Claude AI</a>
+<a class="tool" target="_blank" href="https://www.perplexity.ai/">Perplexity AI</a>
+<a class="tool" target="_blank" href="https://www.adobe.com/express/">Adobe Express AI</a>
+<a class="tool" target="_blank" href="https://www.resume.com/">Resume Builder</a>
+</div>
+</div>
+</section>
+
+<section id="payment">
+<div class="container">
+<h2>Online Fees Payment</h2>
+<div class="cards">
+<div class="card"><h3>UPI Payment</h3><p>Google Pay, PhonePe, Paytm, BHIM</p></div>
+<div class="card"><h3>Debit/Credit Card</h3><p>Pay through a supported payment gateway.</p></div>
+<div class="card"><h3>Net Banking</h3><p>Bank payment options.</p></div>
+<div class="card"><h3>UPI QR Code</h3><p>Academy QR code can be added here.</p></div>
+<div class="card"><h3>Payment Link</h3><p>Razorpay, Cashfree or PayU integration.</p></div>
+<div class="card"><h3>Cash Payment</h3><p>Pay at the academy.</p></div>
+</div>
+<p style="text-align:center;margin-top:18px">
+Actual online payments require your UPI details or payment gateway setup.
+</p>
+</div>
+</section>
+
+<section id="certificate">
+<div class="container">
+<h2>Certificate Verification</h2>
+<div class="formbox">
+<label>Enter Certificate Number</label>
+<input id="certNo" placeholder="Example: ACA-2026-0001">
+<button class="primary" onclick="verifyCert()">Verify Certificate</button>
+<div id="certResult" class="notice"></div>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+<h2>Contact Us</h2>
+<div class="card" style="text-align:center">
+<h3>Aditya Computer Academy</h3>
+<p>Phone: 9305066046</p>
+<p>Instagram: @adityacomputeracademy</p>
+<p>Address: Please add your academy's full address.</p>
+<p style="margin-top:15px">
+<a class="btn primary" href="tel:9305066046">Call Now</a>
+<a class="btn green" target="_blank" href="https://wa.me/919305066046">WhatsApp</a>
+<a class="btn primary" target="_blank" href="https://www.instagram.com/adityacomputeracademy/">Instagram</a>
+</p>
+</div>
+</div>
+</section>
+
+<footer>
+<p>© 2026 Aditya Computer Academy. All rights reserved.</p>
+<p>Computer Education & Digital Skills</p>
+<button class="white" onclick="openAdmin()" style="margin-top:12px">Admin Panel</button>
+</footer>
+
+<!-- COURSE DETAILS -->
+<div class="modal" id="courseModal">
+<div class="modal-content">
+<button class="close" onclick="closeModal('courseModal')">Close</button>
+<div id="courseDetails"></div>
+</div>
+</div>
+
+<!-- ADMISSION FORM -->
+<div class="modal" id="admissionModal">
+<div class="modal-content">
+<button class="close" onclick="closeModal('admissionModal')">Close</button>
+<h2>Student Admission Form</h2>
+<div id="formNotice" class="notice"></div>
+
+<form id="admissionForm">
+<div class="formgrid">
+
+<div>
+<label>Student Name *</label>
+<input name="student" required>
+</div>
+
+<div>
+<label>Father Name *</label>
+<input name="father" required>
+</div>
+
+<div class="full">
+<label>Full Address *</label>
+<textarea name="address" required></textarea>
+</div>
+
+<div>
+<label>Contact Number *</label>
+<input name="contact" type="tel" pattern="[0-9+ -]{10,15}" required>
+</div>
+
+<div>
+<label>Education *</label>
+<input name="education" placeholder="10th / 12th / Graduate" required>
+</div>
+
+<div>
+<label>Select Course *</label>
+<select name="course" id="formCourse" required></select>
+</div>
+
+<div>
+<label>Passport Size Photo *</label>
+<input name="photo" type="file" accept="image/*" required>
+</div>
+
+<div class="full">
+<p><b>Declaration:</b> I declare that the information given in this form is true and correct to the best of my knowledge. I agree to follow the rules and regulations of Aditya Computer Academy.</p>
+<label><input type="checkbox" required style="width:auto"> I accept the declaration.</label>
+</div>
+
+</div>
+<button class="green" type="submit">Submit Admission Form</button>
+</form>
+</div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="modal" id="adminModal">
+<div class="modal-content">
+<button class="close" onclick="closeModal('adminModal')">Close</button>
+
+<div id="adminLogin">
+<h2>Admin Login</h2>
+<p>Demo login only. Change the credentials before publishing.</p>
+<label>Username</label>
+<input id="adminUser" autocomplete="username">
+<label>Password</label>
+<input id="adminPass" type="password" autocomplete="current-password">
+<button class="primary" onclick="loginAdmin()">Login</button>
+<p id="adminError" style="color:red"></p>
+</div>
+
+<div id="adminPanel" style="display:none">
+<h2>Admin Dashboard</h2>
+<p id="totalStudents">Total Admissions: 0</p>
+<div style="overflow:auto">
+<table>
+<thead>
+<tr>
+<th>Student</th>
+<th>Father</th>
+<th>Contact</th>
+<th>Course</th>
+<th>Education</th>
+</tr>
+</thead>
+<tbody id="studentRows"></tbody>
+</table>
+</div>
+<button class="primary" onclick="exportCSV()">Export Admission CSV</button>
+<button class="green" onclick="logoutAdmin()">Logout</button>
+<p style="margin-top:12px;font-size:13px">Demo data is saved in this browser only. Use a secure backend and database for a real admin panel.</p>
+</div>
+</div>
+</div>
+
+<script>
+const courses = [
+{
+name:"ADCA", fee:400,
+subjects:[
+"Basic Computer Fundamentals","Notepad","WordPad",
+"MS Word","MS Excel","PowerPoint","Tally","Typing",
+"Photoshop","CorelDRAW","Internet"
+]
+},
+{
+name:"DCA", fee:500,
+subjects:[
+"Computer Fundamentals","Windows","MS Word","MS Excel",
+"PowerPoint","MS Access Basics","Internet and Email",
+"Typing","Basic Tally","Cyber Safety"
+]
+},
+{
+name:"CCC", fee:500,
+subjects:[
+"Computer Fundamentals","Operating System","Word Processing",
+"Spreadsheet","Presentation","Internet","Email",
+"Digital Payments","Cyber Security","e-Governance"
+]
+},
+{
+name:"DTP", fee:700,
+subjects:[
+"Photoshop","CorelDRAW","Page Layout","Image Editing",
+"Logo Design","Poster Design","Printing Basics"
+]
+},
+{
+name:"PGDCA", fee:1500,
+subjects:[
+"Computer Fundamentals","Programming Basics","DBMS",
+"MS Office","Internet","Web Basics","Data Structures","Project Work"
+]
+},
+{
+name:"Tally Prime", fee:1000,
+subjects:[
+"Company Creation","Ledger and Groups","Accounting Vouchers",
+"GST","Inventory","Reports","Payroll Basics","Practical Accounting"
+]
+},
+{
+name:"Typing", fee:500,
+subjects:[
+"English Typing","Hindi Typing","Speed Practice",
+"Accuracy Practice","Office Typing","Typing Tests"
+]
+},
+{
+name:"MS Office", fee:1000,
+subjects:[
+"MS Word","MS Excel","MS PowerPoint",
+"MS Access Basics","Office Productivity","Practical Projects"
+]
+}
+];
+
+const courseCards = document.getElementById("courseCards");
+const formCourse = document.getElementById("formCourse");
+
+courses.forEach((course,index)=>{
+const card = document.createElement("div");
+card.className = "card";
+card.innerHTML = `
+<h3>${course.name}</h3>
+<div class="price">₹${course.fee}</div>
+<p>${course.subjects.slice(0,4).join(", ")}...</p>
+<button class="primary" onclick="viewCourse(${index})">View Course</button>
+<button class="green" onclick="enroll('${course.name}')">Enroll Now</button>
+`;
+courseCards.appendChild(card);
+
+const option = document.createElement("option");
+option.value = course.name;
+option.textContent = course.name + " - ₹" + course.fee;
+formCourse.appendChild(option);
+});
+
+function viewCourse(index){
+const c = courses[index];
+document.getElementById("courseDetails").innerHTML = `
+<h2>${c.name} Course</h2>
+<div class="price">₹${c.fee}</div>
+<h3>Course Subjects</h3>
+<ul>${c.subjects.map(s=>`<li>${s}</li>`).join("")}</ul>
+<button class="green" onclick="closeModal('courseModal');enroll('${c.name}')">Enroll Now</button>
+`;
+document.getElementById("courseModal").classList.add("show");
+}
+
+function enroll(course){
+if(course) formCourse.value = course;
+document.getElementById("formNotice").classList.remove("show");
+document.getElementById("admissionModal").classList.add("show");
+}
+
+function closeModal(id){
+document.getElementById(id).classList.remove("show");
+}
+
+window.addEventListener("click",function(e){
+if(e.target.classList.contains("modal")){
+e.target.classList.remove("show");
+}
+});
+
+document.getElementById("admissionForm").addEventListener("submit",async function(e){
+e.preventDefault();
+
+const form = e.currentTarget;
+const data = new FormData(form);
+const photoFile = data.get("photo");
+
+if(!photoFile || !photoFile.type.startsWith("image/")){
+alert("Please select an image for the passport-size photo.");
+return;
+}
+
+if(photoFile.size > 2*1024*1024){
+alert("Photo must be smaller than 2 MB.");
+return;
+}
+
+const photo = await new Promise((resolve,reject)=>{
+const reader = new FileReader();
+reader.onload = ()=>resolve(reader.result);
+reader.onerror = reject;
+reader.readAsDataURL(photoFile);
+});
+
+const record = {
+student:data.get("student"),
+father:data.get("father"),
+address:data.get("address"),
+contact:data.get("contact"),
+education:data.get("education"),
+course:data.get("course"),
+photo:photo,
+date:new Date().toLocaleString()
+};
+
+try{
+const records = JSON.parse(localStorage.getItem("aca_admissions") || "[]");
+records.push(record);
+localStorage.setItem("aca_admissions",JSON.stringify(records));
+
+const notice = document.getElementById("formNotice");
+notice.textContent = "Form Submitted Successfully! Your admission details have been saved in this browser.";
+notice.classList.add("show");
+
+form.reset();
+}catch(error){
+alert("Unable to save the form. Browser storage may be full.");
+}
+});
+
+const certificates = {
+"ACA-2026-0001":{
+student:"Demo Student",
+course:"ADCA",
+status:"Demo Record"
+}
+};
+
+function verifyCert(){
+const number = document.getElementById("certNo").value.trim().toUpperCase();
+const result = document.getElementById("certResult");
+
+if(certificates[number]){
+const c = certificates[number];
+result.textContent = "Demo certificate record found. Student: "+c.student+
+" | Course: "+c.course+" | Status: "+c.status+
+". This is sample data, not an official certificate verification.";
+result.style.background = "#fef3c7";
+result.style.color = "#92400e";
+}else{
+result.textContent = "Certificate number not found. Please contact the academy.";
+result.style.background = "#fee2e2";
+result.style.color = "#991b1b";
+}
+result.classList.add("show");
+}
+
+function openAdmin(){
+document.getElementById("adminModal").classList.add("show");
+}
+
+function loginAdmin(){
+/*
+ DEMO LOGIN ONLY.
+ Do not use this as real website security.
+*/
+if(
+document.getElementById("adminUser").value === "admin" &&
+document.getElementById("adminPass").value === "admin123"
+){
+document.getElementById("adminLogin").style.display = "none";
+document.getElementById("adminPanel").style.display = "block";
+loadStudents();
+}else{
+document.getElementById("adminError").textContent = "Invalid login. Demo: admin / admin123";
+}
+}
+
+function loadStudents(){
+const records = JSON.parse(localStorage.getItem("aca_admissions") || "[]");
+document.getElementById("totalStudents").textContent = "Total Admissions: "+records.length;
+
+const tbody = document.getElementById("studentRows");
+tbody.innerHTML = "";
+
+records.forEach(s=>{
+const row = document.createElement("tr");
+[s.student,s.father,s.contact,s.course,s.education].forEach(value=>{
+const td = document.createElement("td");
+td.textContent = value || "";
+row.appendChild(td);
+});
+tbody.appendChild(row);
+});
+
+if(!records.length){
+tbody.innerHTML = "<tr><td colspan='5'>No admissions submitted in this browser yet.</td></tr>";
+}
+}
+
+function logoutAdmin(){
+document.getElementById("adminLogin").style.display = "block";
+document.getElementById("adminPanel").style.display = "none";
+document.getElementById("adminUser").value = "";
+document.getElementById("adminPass").value = "";
+}
+
+function exportCSV(){
+const records = JSON.parse(localStorage.getItem("aca_admissions") || "[]");
+
+if(!records.length){
+alert("No admission records to export.");
+return;
+}
+
+const columns = ["student","father","address","contact","education","course","date"];
+const csv = [
+columns.join(","),
+...records.map(record =>
+columns.map(key =>
+'"'+String(record[key] || "").replace(/"/g,'""')+'"'
+).join(",")
+)
+].join("\n");
+
+const blob = new Blob([csv],{type:"text/csv;charset=utf-8;"});
+const url = URL.createObjectURL(blob);
+const link = document.createElement("a");
+link.href = url;
+link.download = "aditya-academy-admissions.csv";
+link.click();
+URL.revokeObjectURL(url);
+}
+</script>
+
+</body>
+</html>
